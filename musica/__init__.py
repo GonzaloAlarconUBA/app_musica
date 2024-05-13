@@ -33,3 +33,15 @@ def canciones():
     lista_canciones = res.fetchall()
     pagina = render_template('Canciones.html',canciones=lista_canciones)
     return pagina
+
+@app.route('/discos')
+def discos():
+    consulta = """
+        SELECT Title FROM albums
+    """
+
+    con = db.get_db()
+    res = con.execute(consulta)
+    lista_discos = res.fetchall()
+    pagina = render_template('Discos.html',discos=lista_discos)
+    return pagina
