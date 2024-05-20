@@ -12,7 +12,9 @@
     <h1 class="discos">Discos</h1>
     <ul>
       {% for d in discos %}
-      <li>{{ d['Title'] }}</li>
+      <li>
+        <a>{{ d['Title'] }}</a>
+      </li>
       {% endfor %}
     </ul>
   </body>

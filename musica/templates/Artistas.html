@@ -12,7 +12,9 @@
     <h1 class="artistas">Artistas</h1>
     <ul>
       {% for a in artistas %}
-      <li>{{ a['Name'] }}</li>
+      <li>
+        <a href="">{{ a['Name'] }}</a>
+      </li>
       {% endfor %}
     </ul>
   </body>
