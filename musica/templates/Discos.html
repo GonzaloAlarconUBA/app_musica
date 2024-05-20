@@ -8,8 +8,8 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
-  <body>
-    <h1>Discos</h1>
+  <body class="fondoDis">
+    <h1 class="discos">Discos</h1>
     <ul>
       {% for d in discos %}
       <li>{{ d['Title'] }}</li>

@@ -10,24 +10,15 @@ with app.app_context():
 def hello():
     return 'Hello, World!'
 
-@app.route('/artistas')
-def artistas():
-    consulta = """
-        SELECT Name FROM artists
-    """
+from . import artista
+app.register_blueprint(artista.bp)
 
-    con = db.get_db()
-    res = con.execute(consulta)
-    lista_artistas = res.fetchall()
-    pagina = render_template('Artistas.html',artistas=lista_artistas)
-    return pagina
 
 @app.route('/canciones')
 def canciones():
     consulta = """
         SELECT Name FROM tracks
     """
-
     con = db.get_db()
     res = con.execute(consulta)
     lista_canciones = res.fetchall()
