@@ -4,14 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artista</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
-  <body>
-    <h1>Artista</h1>
-    <h2></h2>
+  <body class="fondoArt">
+    <h1 class="artistas">Artista</h1>
+    <h2 class="artista">{{ artista["Name"] }}</h2>
     <ul>
+      {% for album in albums %}  
       <li>
-        <a></a>
+        {{ album["Title"] }}
       </li>
+      {% endfor %}
     </ul>
   </body>
   <section class="content">

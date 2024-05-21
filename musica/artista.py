@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template
 from . import db
 
-bp = Blueprint('artist', __name__, url_prefix='/artist')
+bp = Blueprint('artista', __name__, url_prefix='/artista')
 
 @bp.route('/')
 def artistas():
     consulta = """
-        SELECT Name FROM artists
+        SELECT Name, ArtistId FROM artists
     """
 
     con = db.get_db()
@@ -23,16 +23,16 @@ def detalle(id):
         SELECT Name FROM artists WHERE ArtistId = ?
     """  
     consulta2 = """
-        SELECT Title FROM albums a JOIN artists ar  
+        SELECT Title, AlbumId FROM albums a JOIN artists ar  
         ON a.ArtistId = ar.ArtistId 
         WHERE a.ArtistId = ?
     """
     res = con.execute(consulta1, (id,))
-    artistas = res.fetchone()
+    artista = res.fetchone()
     res = con.execute(consulta2, (id, ))
     lista_albums = res.fetchall()
     pagina = render_template('detalleArtista.html', 
-                             artista=artistas, 
+                             artista=artista, 
                              albums=lista_albums)
 
     return pagina 

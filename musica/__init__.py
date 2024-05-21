@@ -14,7 +14,7 @@ from . import artista
 app.register_blueprint(artista.bp)
 
 
-@app.route('/canciones')
+@app.route('/cancion')
 def canciones():
     consulta = """
         SELECT Name FROM tracks
@@ -25,14 +25,3 @@ def canciones():
     pagina = render_template('Canciones.html',canciones=lista_canciones)
     return pagina
 
-@app.route('/discos')
-def discos():
-    consulta = """
-        SELECT Title FROM albums
-    """
-
-    con = db.get_db()
-    res = con.execute(consulta)
-    lista_discos = res.fetchall()
-    pagina = render_template('Discos.html',discos=lista_discos)
-    return pagina
