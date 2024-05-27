@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Discos</title>
+    <title>Lista de discos</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -11,13 +11,11 @@
     />
   </head>
   <body class="fondoDis">
-    <h1 class="discos">Disco</h1>
+    <h1 class="discos">Discos</h1>
     <h2 class="disco">{{ album["Name"] }}</h2>
     <ul>
-      {% for album in albums %}  
-      <li>
-        {{ album["Title"] }}
-      </li>
+      {% for album in albums %}
+      <li>{{ artist["Name"] }}</li>
       {% endfor %}
     </ul>
   </body>
