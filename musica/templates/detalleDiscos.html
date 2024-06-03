@@ -12,10 +12,12 @@
   </head>
   <body class="fondoDis">
     <h1 class="discos">Discos</h1>
-    <h2 class="disco">{{ album["Name"] }}</h2>
+    {% for album in albums %}
+      <h2 class="disco">{{ albums["Title"] }}</h2>
+    {% endfor %}
     <ul>
       {% for album in albums %}
-      <li>{{ artist["Name"] }}</li>
+        <li>{{ artist["Name"] }}</li>
       {% endfor %}
     </ul>
   </body>

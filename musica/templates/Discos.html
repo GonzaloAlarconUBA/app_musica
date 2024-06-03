@@ -13,7 +13,7 @@
     <ul>
       {% for d in discos %}
       <li>
-        <a href="{{url_for('album.detalle', id=d['AlbumId'])}}">{{ d['Title'] }}</a>
+        <a href="{{url_for('disco.detalle', id=d['aId'])}}">{{ d['Title'] }}</a>
       </li>
       {% endfor %}
     </ul>

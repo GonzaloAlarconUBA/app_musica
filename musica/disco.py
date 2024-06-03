@@ -6,7 +6,7 @@ bp = Blueprint('disco', __name__, url_prefix='/disco')
 @bp.route('/')
 def discos():
     consulta = """
-        SELECT Title FROM albums
+        SELECT Title , AlbumId AS aId FROM albums
     """
 
     con = db.get_db()
@@ -15,3 +15,24 @@ def discos():
     pagina = render_template('Discos.html',
                              discos=lista_discos)
     return pagina
+
+@bp.route('/<int:id>')
+def detalle(id):
+    con = db.get_db()
+    consulta1 = """
+        SELECT title, AlbumId AS aId FROM albums WHERE AlbumId = ?
+    """  
+    consulta2 = """
+        SELECT Name, TrackId, a.AlbumId AS aId FROM albums a JOIN tracks t  
+        ON a.AlbumId = t.AlbumId 
+        WHERE a.AlbumId = ?
+    """
+    res = con.execute(consulta1, (id,))
+    disco = res.fetchone()
+    res = con.execute(consulta2, (id, ))
+    lista_canciones = res.fetchall()
+    pagina = render_template('detalleDiscos.html', 
+                             disco=disco, 
+                             canciones=lista_canciones)
+
+    return pagina 
