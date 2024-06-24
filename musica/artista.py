@@ -12,7 +12,8 @@ def artistas():
     con = db.get_db()
     res = con.execute(consulta)
     lista_artistas = res.fetchall()
-    pagina = render_template('Artistas.html',artistas=lista_artistas)
+    pagina = render_template('Artistas.html',
+                             artistas=lista_artistas)
     return pagina
 
 

@@ -13,7 +13,7 @@
     <ul>
       {% for c in canciones %}
       <li>
-        <a href=""> {{ c['Name'] }} </a>
+        <a href="{{url_for('cancion.detalle', id=c['TrackId'])}}"> {{ c['Name'] }} </a>
       </li>
       {% endfor %}
     </ul>

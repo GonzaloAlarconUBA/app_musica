@@ -20,7 +20,7 @@ def discos():
 def detalle(id):
     con = db.get_db()
     consulta1 = """
-        SELECT title, AlbumId AS aId FROM albums WHERE AlbumId = ?
+        SELECT Title, AlbumId AS aId FROM albums WHERE AlbumId = ?
     """  
     consulta2 = """
         SELECT Name, TrackId, a.AlbumId AS aId FROM albums a JOIN tracks t  

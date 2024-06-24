@@ -12,12 +12,12 @@
   </head>
   <body class="fondoDis">
     <h1 class="discos">Discos</h1>
-    {% for album in albums %}
-      <h2 class="disco">{{ albums["Title"] }}</h2>
-    {% endfor %}
+    <h2 class="disco">{{ disco["Title"] }}</h2>
     <ul>
-      {% for album in albums %}
-        <li>{{ artist["Name"] }}</li>
+      {% for cancion in canciones %}
+        <li>
+          <a href="{{url_for('cancion.detalle', id=c['TrackId'])}}">{{ cancion["Name"] }}</a>
+        </li>
       {% endfor %}
     </ul>
   </body>
